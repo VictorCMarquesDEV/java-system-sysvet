@@ -1,18 +1,29 @@
-## Getting Started
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+# System SysVet
 
-## Folder Structure
+Este repositório contém o código fonte do sistema "SysVet", desenvolvido em Java. O sistema é uma plataforma inovadora projetada para otimizar a administração de clínicas veterinárias, proporcionando uma gestão eficiente e organizada. Com uma interface intuitiva, o sistema permite que os funcionários registrem e acompanhem todas as informações essenciais dos pacientes de forma prática, realizem o agendamento de consultas e tratamentos, gerem relatórios, verifiquem o histórico dos pacientes e controlem o estoque de medicamentos, além de permitir que o gerente gerencie os seus funcionários.
 
-The workspace contains two folders by default, where:
+### Tecnologias Utilizadas
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+* Java: Linguagem de programação orientada a objetos.
+* Hibernate: Framework de mapeamento objeto-relacional, também chamado de ORM, para Java.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+### Pré-requisitos
+* Java Development Kit (JDK): Versão 21 ou superior.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+### Instalação
+Clone o repositório:
+```
+git clone https://github.com/VictorCMarquesDEV/java-system-sysvet.git
+```
 
-## Dependency Management
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+### Execução
+Aperte em Run Java.
+
+
+### Estrutura do Projeto
+* src: Diretório para manter os recursos principais do sistema.
+* lib: Diretório para manter os recursos auxiliares e bibliotecas do sistema.
+
+# Use o código com cuidado!
