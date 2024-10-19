@@ -6,7 +6,7 @@
     <session-factory>
         <!-- Database connection properties -->
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/sysvet</property>
         <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.connection.password">postgres</property>
  
@@ -18,6 +18,6 @@
 
         <!-- Mapping files or annotated classes -->
         <!-- Add your entity classes or mapping files here  for ex: entity used below -->
-        <mapping class="models.Employee"/>
+        <mapping class="models.Funcionario"/>
     </session-factory>
 </hibernate-configuration>
