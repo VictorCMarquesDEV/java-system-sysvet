@@ -1,3 +1,4 @@
+package com.sysvet;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,12 +16,16 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("login"), 1080, 720);
+        scene = new Scene(loadFXML("/view/login"), 1080, 720);
+        stage.setMinWidth(1080);  // Largura mínima
+        stage.setMinHeight(700); // Altura mínima
         stage.setScene(scene);
+        stage.setTitle("SysVet");
+
         stage.show();
     }
 
-    static void setRoot(String fxml) throws IOException {
+    public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
 

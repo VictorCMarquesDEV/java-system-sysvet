@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sysvet.controller.InicioController">
+   <center>
+      <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="830.0" style="-fx-background-color: #f1f1f1;" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="309.0" layoutY="269.0" prefHeight="115.0" prefWidth="241.0" text="Página de inicio">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children></Pane>
+   </center>
+   <left>
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="250.0" style="-fx-background-color: #669999;" BorderPane.alignment="CENTER">
+         <children>
+            <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="720.0" VBox.vgrow="ALWAYS">
+               <bottom>
+                  <Button alignment="CENTER" blendMode="MULTIPLY" contentDisplay="CENTER" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="50.0" prefWidth="250.0" text="Sair" textAlignment="CENTER" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+               </bottom>
+               <top>
+                  <Pane prefHeight="214.0" prefWidth="250.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <ImageView fitHeight="142.0" fitWidth="249.0" layoutX="1.0" layoutY="60.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/sysvet-logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+               </top>
+               <center>
+                  <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="409.0" prefWidth="250.0" BorderPane.alignment="BOTTOM_CENTER">
+                     <children>
+                        <Button alignment="CENTER" blendMode="MULTIPLY" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#switchToInicio" prefHeight="50.0" prefWidth="250.0" text="Início" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Button>
+                        <Button alignment="CENTER" blendMode="MULTIPLY" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#switchToCadastro" prefHeight="50.0" prefWidth="250.0" text="Cadastro de pacientes" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button alignment="CENTER" blendMode="MULTIPLY" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#switchToConsultas" prefHeight="50.0" prefWidth="250.0" text="Consultas" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button alignment="CENTER" blendMode="MULTIPLY" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#switchToMedicamentos" prefHeight="50.0" prefWidth="250.0" text="Medicamentos" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button alignment="CENTER" blendMode="MULTIPLY" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#switchToGerenciar" prefHeight="50.0" prefWidth="250.0" text="Gerenciar Funcionários" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+               </center>
+            </BorderPane>
+         </children>
+      </VBox>
+   </left>
+</BorderPane>
