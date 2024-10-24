@@ -1,10 +1,7 @@
 package repositories;
 
-import java.util.List;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import models.Funcionario;
