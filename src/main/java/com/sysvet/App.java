@@ -13,26 +13,48 @@ import java.io.IOException;
 public class App extends Application {
 
     private static Scene scene;
+    private static Stage primaryStage;  // Referência ao Stage principal
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("/view/login"), 1080, 720);
-        stage.setMinWidth(1080);  // Largura mínima
-        stage.setMinHeight(700); // Altura mínima
-        stage.setScene(scene);
-        stage.setTitle("SysVet");
+        primaryStage = stage;  // Armazena o Stage principal
+        scene = new Scene(loadFXML("/view/login"), 600, 500);  // Tamanho inicial para a tela de login
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("SysVet");
+        primaryStage.setMinWidth(600);  // Definir largura mínima para a tela de login
+        primaryStage.setMinHeight(500); // Definir altura mínima para a tela de login
 
-        stage.show();
+        primaryStage.show();
     }
 
     public static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
+        Parent root = loadFXML(fxml);
+        scene.setRoot(root);
+
+        // Ajustar o tamanho da janela com base na tela atual
+        adjustStageSize(fxml);
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
+
+    // Método para ajustar o tamanho da janela
+    private static void adjustStageSize(String fxml) {
+        if (fxml.contains("login")) {
+            primaryStage.setWidth(620);
+            primaryStage.setHeight(540);
+            primaryStage.setMinWidth(620);
+            primaryStage.setMinHeight(540);
+        } else {
+            primaryStage.setMinWidth(1100);
+            primaryStage.setMinHeight(760);
+        } 
+        
+    }
+
+
 
     public static void main(String[] args) {
         launch();
