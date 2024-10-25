@@ -35,19 +35,19 @@ public class Funcionario {
         return id;
     }
 
-    public String getName() {
+    public String getNome() {
         return nome;
     }
 
-    public void setName(String nome){
+    public void setNome(String nome){
         this.nome = nome;
     }
 
-    public String getCPF() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCPF(String cpf){
+    public void setCpf(String cpf){
         this.cpf = cpf;
     }
 

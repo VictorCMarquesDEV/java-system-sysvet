@@ -19,7 +19,7 @@ public class FuncionarioRepository extends GenericRepository<Funcionario, Long> 
     public void save(Funcionario entity) {
         try (Session session = sessionFactory.openSession()){
             Query<Funcionario> query = session.createNativeQuery("SELECT * FROM funcionarios WHERE cpf = :cpf",Funcionario.class);
-            query.setParameter("cpf", entity.getCPF());
+            query.setParameter("cpf", entity.getCpf());
             Funcionario funcionario = query.uniqueResult();
 
             if(funcionario == null){
