@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sysvet.controller.LoginController">
    <children>
       <HBox prefHeight="500.0" prefWidth="600.0">
@@ -43,13 +42,13 @@
                <children>
                   <AnchorPane prefHeight="534.0" prefWidth="300.0">
                      <children>
-                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="101.0" layoutY="314.0" mnemonicParsing="false" onAction="#switchToInicio" prefHeight="40.0" prefWidth="100.0" text="Login" textAlignment="CENTER">
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="101.0" layoutY="314.0" mnemonicParsing="false" onAction="#validateLogin" prefHeight="40.0" prefWidth="100.0" text="Login" textAlignment="CENTER">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Button>
-                        <PasswordField layoutX="77.0" layoutY="264.0" promptText="Password" />
-                        <TextField layoutX="77.0" layoutY="221.0" promptText="User" />
+                        <PasswordField fx:id="loginPassword" layoutX="77.0" layoutY="264.0" promptText="Password" />
+                        <TextField fx:id="loginUser" layoutX="77.0" layoutY="221.0" promptText="User" />
                         <ImageView fitHeight="65.0" fitWidth="188.0" layoutX="58.0" layoutY="119.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/sysvet-logo.png" />
