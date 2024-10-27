@@ -16,11 +16,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sysvet.controller.GerenciarController">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sysvet.controller.GerenciarController">
    <center>
-      <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="830.0" style="-fx-background-color: #f1f1f1;" BorderPane.alignment="CENTER">
+      <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #f1f1f1;" BorderPane.alignment="CENTER">
          <children>
-            <GridPane alignment="CENTER" layoutX="20.0" layoutY="20.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="633.0" prefWidth="790.0" style="-fx-border-color: #669999;">
+            <GridPane alignment="CENTER" layoutX="20.0" layoutY="20.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: #669999;">
                <columnConstraints>
                   <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
                </columnConstraints>
@@ -57,18 +57,18 @@
                         </GridPane>
                      </children>
                   </Pane>
-                  <TableView fx:id="table" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="109.0" prefWidth="772.0" style="-fx-font-size: 14;" GridPane.rowIndex="1">
+                  <TableView fx:id="table" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="566.0" style="-fx-font-size: 14;" GridPane.rowIndex="1">
                     <columns>
-                      <TableColumn fx:id="name" maxWidth="1.7976931348623157E308" prefWidth="225.0" style="-fx-alignment: left;" text="Nome" />
+                      <TableColumn fx:id="name" maxWidth="1.7976931348623157E308" prefWidth="225.0" style="-fx-alignment: center_left;" text="Nome" />
                         <TableColumn fx:id="cpf" maxWidth="1.7976931348623157E308" prefWidth="210.0" style="-fx-alignment: center;" text="CPF" />
                       <TableColumn fx:id="salary" maxWidth="1.7976931348623157E308" prefWidth="210.0" style="-fx-alignment: center;" text="Salário" />
-                        <TableColumn fx:id="edit" maxWidth="1.7976931348623157E308" prefWidth="70.0" style="-fx-alignment: center;" />
-                        <TableColumn fx:id="delete" maxWidth="1.7976931348623157E308" prefWidth="70.0" style="-fx-alignment: center;" />
+                        <TableColumn fx:id="editIcon" maxWidth="1.7976931348623157E308" prefWidth="70.0" style="-fx-alignment: center;" />
+                        <TableColumn fx:id="deleteIcon" maxWidth="1.7976931348623157E308" prefWidth="70.0" style="-fx-alignment: center;" />
                     </columns>
                   </TableView>
                </children>
             </GridPane>
-            <Button layoutX="321.0" layoutY="668.0" mnemonicParsing="false" onMouseClicked="#newEmployee" prefHeight="41.0" prefWidth="211.0" style="-fx-background-color: #669999;" text="Cadastrar funcionário" textFill="WHITE">
+            <Button layoutX="321.0" layoutY="645.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="211.0" style="-fx-background-color: #669999;" text="Cadastrar funcionário" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
@@ -79,7 +79,7 @@
          </children></Pane>
    </center>
    <left>
-      <VBox maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="250.0" style="-fx-background-color: #669999;" BorderPane.alignment="CENTER">
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="250.0" style="-fx-background-color: #669999;" BorderPane.alignment="CENTER">
          <children>
             <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="720.0" VBox.vgrow="ALWAYS">
                <bottom>

@@ -49,7 +49,7 @@ public class App extends Application {
             primaryStage.setMinHeight(540);
         } else {
             primaryStage.setMinWidth(1100);
-            primaryStage.setMinHeight(760);
+            primaryStage.setMinHeight(740);
         } 
         
     }
