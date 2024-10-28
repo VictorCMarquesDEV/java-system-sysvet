@@ -25,7 +25,8 @@ public class GenericRepository<T, ID> implements GenericRepositoryInterface<T, I
             session.persist(entity);
             transaction.commit();
         } catch (Exception e) {
-            if (transaction != null) transaction.rollback();
+            if (transaction != null)
+                transaction.rollback();
             e.printStackTrace();
         }
     }
@@ -55,7 +56,8 @@ public class GenericRepository<T, ID> implements GenericRepositoryInterface<T, I
             }
             transaction.commit();
         } catch (Exception e) {
-            if (transaction != null) transaction.rollback();
+            if (transaction != null)
+                transaction.rollback();
             e.printStackTrace();
         }
     }

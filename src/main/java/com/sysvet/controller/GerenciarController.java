@@ -22,7 +22,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import models.Funcionario;
 
-public class GerenciarController implements Initializable{
+public class GerenciarController implements Initializable {
     public class TableRow {
         private Funcionario funcionario;
 
@@ -30,35 +30,31 @@ public class GerenciarController implements Initializable{
             this.funcionario = funcionario;
         }
 
-        public String getNome(){
+        public String getNome() {
             return this.funcionario.getNome();
         };
 
-        public String getCpf(){
+        public String getCpf() {
             return this.funcionario.getCpf();
         }
 
-        public Double getSalario(){
+        public Double getSalario() {
             return this.funcionario.getSalario();
         };
 
-        public ImageView getEditIcon(){
+        public ImageView getEditIcon() {
             return new ImageView(
-                new Image(
-                    App.class.getResourceAsStream("/images/pencil-line.png")
-                )
-            );
+                    new Image(
+                            App.class.getResourceAsStream("/images/pencil-line.png")));
         }
 
-        public ImageView getDeleteIcon(){
+        public ImageView getDeleteIcon() {
             return new ImageView(
-                new Image(
-                    App.class.getResourceAsStream("/images/trash.png")
-                )
-            );
+                    new Image(
+                            App.class.getResourceAsStream("/images/trash.png")));
         }
 
-        public Funcionario getFuncionario(){
+        public Funcionario getFuncionario() {
             return this.funcionario;
         }
     }
@@ -87,43 +83,42 @@ public class GerenciarController implements Initializable{
     }
 
     ObservableList<TableRow> registros = FXCollections.observableArrayList(
-        new TableRow(
-            new Funcionario("David Rios","000.000.000-01",1000.50)
-        ),
-        new TableRow(
-            new Funcionario("Helen Albuquerque","000.000.000-02",1000.50)
-        ),
-        new TableRow(
-            new Funcionario("Victor Cavalvanti","000.000.000-03",1000.50)
-        ),
-        new TableRow(
-            new Funcionario("Maria Nícolle","000.000.000-04",1000.50)
-        ),
-        new TableRow(
-            new Funcionario("Vítor Pereira","000.000.000-05",1000.50)
-        )
-    );
+            new TableRow(
+                    new Funcionario("David Rios", "000.000.000-01", 1000.50)),
+            new TableRow(
+                    new Funcionario("Helen Albuquerque", "000.000.000-02", 1000.50)),
+            new TableRow(
+                    new Funcionario("Victor Cavalvanti", "000.000.000-03", 1000.50)),
+            new TableRow(
+                    new Funcionario("Maria Nícolle", "000.000.000-04", 1000.50)),
+            new TableRow(
+                    new Funcionario("Vítor Pereira", "000.000.000-05", 1000.50)));
 
     @FXML
     private void switchToLogin() throws IOException {
         App.setRoot("/view/login");
     }
+
     @FXML
     private void switchToCadastro() throws IOException {
         App.setRoot("/view/cadastro");
     }
+
     @FXML
     private void switchToConsultas() throws IOException {
         App.setRoot("/view/consultas");
     }
+
     @FXML
     private void switchToGerenciar() throws IOException {
         App.setRoot("/view/gerenciar");
     }
+
     @FXML
     private void switchToInicio() throws IOException {
         App.setRoot("/view/inicio");
     }
+
     @FXML
     private void switchToMedicamentos() throws IOException {
         App.setRoot("/view/medicamentos");
@@ -131,14 +126,15 @@ public class GerenciarController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        name.setCellValueFactory(new PropertyValueFactory<TableRow,String>("nome"));
-        cpf.setCellValueFactory(new PropertyValueFactory<TableRow,String>("cpf"));
-        salary.setCellValueFactory(new PropertyValueFactory<TableRow,Double>("salario"));
-        editIcon.setCellValueFactory(new PropertyValueFactory<TableRow,ImageView>("editIcon"));
-        deleteIcon.setCellValueFactory(new PropertyValueFactory<TableRow,ImageView>("deleteIcon"));
+        name.setCellValueFactory(new PropertyValueFactory<TableRow, String>("nome"));
+        cpf.setCellValueFactory(new PropertyValueFactory<TableRow, String>("cpf"));
+        salary.setCellValueFactory(new PropertyValueFactory<TableRow, Double>("salario"));
+        editIcon.setCellValueFactory(new PropertyValueFactory<TableRow, ImageView>("editIcon"));
+        deleteIcon.setCellValueFactory(new PropertyValueFactory<TableRow, ImageView>("deleteIcon"));
 
-        editIcon.setCellFactory(column -> new TableCell<TableRow,ImageView>(){
-            private final ImageView editIcon = new ImageView(new Image(App.class.getResourceAsStream("/images/pencil-line.png")));
+        editIcon.setCellFactory(column -> new TableCell<TableRow, ImageView>() {
+            private final ImageView editIcon = new ImageView(
+                    new Image(App.class.getResourceAsStream("/images/pencil-line.png")));
 
             {
                 editIcon.setFitWidth(30);
@@ -162,11 +158,12 @@ public class GerenciarController implements Initializable{
                     hBox.setAlignment(Pos.CENTER);
                     setGraphic(hBox);
                 }
-          }
+            }
         });
 
-        deleteIcon.setCellFactory(column -> new TableCell<TableRow,ImageView>(){
-            private final ImageView deleteIcon = new ImageView(new Image(getClass().getResourceAsStream("/images/trash.png")));
+        deleteIcon.setCellFactory(column -> new TableCell<TableRow, ImageView>() {
+            private final ImageView deleteIcon = new ImageView(
+                    new Image(getClass().getResourceAsStream("/images/trash.png")));
 
             {
                 deleteIcon.setFitWidth(30);
@@ -191,7 +188,7 @@ public class GerenciarController implements Initializable{
                     hBox.setAlignment(Pos.CENTER);
                     setGraphic(hBox);
                 }
-          }
+            }
         });
 
         table.setItems(registros);
