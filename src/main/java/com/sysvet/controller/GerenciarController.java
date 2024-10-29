@@ -2,10 +2,10 @@ package com.sysvet.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
-
+import org.hibernate.SessionFactory;
 import com.sysvet.App;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -21,6 +21,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import models.Funcionario;
+import repositories.FuncionarioRepository;
+import utils.hibernateSessionFactorySingleton;
 
 public class GerenciarController implements Initializable {
     public class TableRow {
@@ -82,18 +84,6 @@ public class GerenciarController implements Initializable {
 
     }
 
-    ObservableList<TableRow> registros = FXCollections.observableArrayList(
-            new TableRow(
-                    new Funcionario("David Rios", "000.000.000-01", 1000.50)),
-            new TableRow(
-                    new Funcionario("Helen Albuquerque", "000.000.000-02", 1000.50)),
-            new TableRow(
-                    new Funcionario("Victor Cavalvanti", "000.000.000-03", 1000.50)),
-            new TableRow(
-                    new Funcionario("Maria Nícolle", "000.000.000-04", 1000.50)),
-            new TableRow(
-                    new Funcionario("Vítor Pereira", "000.000.000-05", 1000.50)));
-
     @FXML
     private void switchToLogin() throws IOException {
         App.setRoot("/view/login");
@@ -124,13 +114,27 @@ public class GerenciarController implements Initializable {
         App.setRoot("/view/medicamentos");
     }
 
+    SessionFactory sessionFactory = hibernateSessionFactorySingleton.getSessionFactory();
+
+    FuncionarioRepository funcionarioRepositorio = new FuncionarioRepository(sessionFactory);
+
+    ObservableList<TableRow> registros = FXCollections.observableArrayList();
+
+    List<Funcionario> funcionarios = funcionarioRepositorio.findAll();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        name.setCellValueFactory(new PropertyValueFactory<TableRow, String>("nome"));
-        cpf.setCellValueFactory(new PropertyValueFactory<TableRow, String>("cpf"));
-        salary.setCellValueFactory(new PropertyValueFactory<TableRow, Double>("salario"));
-        editIcon.setCellValueFactory(new PropertyValueFactory<TableRow, ImageView>("editIcon"));
-        deleteIcon.setCellValueFactory(new PropertyValueFactory<TableRow, ImageView>("deleteIcon"));
+        funcionarios.forEach(funcionario -> {
+            registros.add(
+                new TableRow(funcionario)
+            );
+        });
+
+        name.setCellValueFactory(new PropertyValueFactory<TableRow,String>("nome"));
+        cpf.setCellValueFactory(new PropertyValueFactory<TableRow,String>("cpf"));
+        salary.setCellValueFactory(new PropertyValueFactory<TableRow,Double>("salario"));
+        editIcon.setCellValueFactory(new PropertyValueFactory<TableRow,ImageView>("editIcon"));
+        deleteIcon.setCellValueFactory(new PropertyValueFactory<TableRow,ImageView>("deleteIcon"));
 
         editIcon.setCellFactory(column -> new TableCell<TableRow, ImageView>() {
             private final ImageView editIcon = new ImageView(
@@ -174,6 +178,7 @@ public class GerenciarController implements Initializable {
                     TableRow row = getTableView().getItems().get(getIndex());
                     System.out.println("Deletando: " + row.getFuncionario().getNome());
                     registros.remove(row);
+                    funcionarioRepositorio.delete(row.getFuncionario().getId());
                     event.consume();
                 });
             }
