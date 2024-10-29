@@ -1,4 +1,5 @@
 package com.sysvet;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,15 +14,15 @@ import java.io.IOException;
 public class App extends Application {
 
     private static Scene scene;
-    private static Stage primaryStage;  // Referência ao Stage principal
+    private static Stage primaryStage; // Referência ao Stage principal
 
     @Override
     public void start(Stage stage) throws IOException {
-        primaryStage = stage;  // Armazena o Stage principal
-        scene = new Scene(loadFXML("/view/login"), 600, 500);  // Tamanho inicial para a tela de login
+        primaryStage = stage; // Armazena o Stage principal
+        scene = new Scene(loadFXML("/view/login"), 600, 500); // Tamanho inicial para a tela de login
         primaryStage.setScene(scene);
         primaryStage.setTitle("SysVet");
-        primaryStage.setMinWidth(600);  // Definir largura mínima para a tela de login
+        primaryStage.setMinWidth(600); // Definir largura mínima para a tela de login
         primaryStage.setMinHeight(500); // Definir altura mínima para a tela de login
 
         primaryStage.show();
@@ -49,9 +50,9 @@ public class App extends Application {
             primaryStage.setMinHeight(540);
         } else {
             primaryStage.setMinWidth(1100);
-            primaryStage.setMinHeight(740);
-        } 
-        
+            primaryStage.setMinHeight(780);
+        }
+
     }
 
     public static void main(String[] args) {
