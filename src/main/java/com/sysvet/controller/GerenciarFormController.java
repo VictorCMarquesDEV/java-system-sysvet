@@ -82,6 +82,8 @@ public class GerenciarFormController implements Initializable{
                     GerenciarContext.getInstance().getEmployee().setSalario(salary_value);
 
                     employee_repository.update(GerenciarContext.getInstance().getEmployee());
+
+                    GerenciarContext.getInstance().clear();
                 }else{
                     employee_repository.save(new Funcionario(name_value, cpf_value, salary_value));
                 }
