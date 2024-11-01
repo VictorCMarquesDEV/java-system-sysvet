@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 
+import exceptions.UserAlreadyRegistered;
 import models.Funcionario;
 
 public class FuncionarioRepository extends GenericRepository<Funcionario, Long> {
@@ -15,7 +16,7 @@ public class FuncionarioRepository extends GenericRepository<Funcionario, Long> 
     }
 
     @Override
-    public void save(Funcionario entity) {
+    public void save(Funcionario entity)  throws UserAlreadyRegistered {
         try (Session session = sessionFactory.openSession()) {
             Query<Funcionario> query = session.createNativeQuery("SELECT * FROM funcionarios WHERE cpf = :cpf",
                     Funcionario.class);
@@ -25,10 +26,12 @@ public class FuncionarioRepository extends GenericRepository<Funcionario, Long> 
             if (funcionario == null) {
                 super.save(entity);
             } else {
-                System.out.println("Já existe um funcionário com este CPF!");
+                throw new UserAlreadyRegistered();
             }
         } catch (Exception e) {
             e.printStackTrace();
+
+            throw e;
         }
     }
 }
