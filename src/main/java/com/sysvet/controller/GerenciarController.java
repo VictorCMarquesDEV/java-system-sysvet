@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.ResourceBundle;
 import org.hibernate.SessionFactory;
 import com.sysvet.App;
+import context.GerenciarContext;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
@@ -80,7 +80,7 @@ public class GerenciarController implements Initializable {
     private TableView<TableRow> table;
 
     @FXML
-    void switchToGerenciarForm(ActionEvent event) throws IOException {
+    void switchToGerenciarForm() throws IOException {
         App.setRoot("/view/gerenciarForm");
     }
 
@@ -147,7 +147,16 @@ public class GerenciarController implements Initializable {
 
                 editIcon.setOnMouseClicked(event -> {
                     TableRow row = getTableView().getItems().get(getIndex());
-                    System.out.println("Editando: " + row.getFuncionario().getNome());
+
+                    GerenciarContext.getInstance().setEmployee(row.getFuncionario());
+                    GerenciarContext.getInstance().setEdit(true);
+
+                    try {
+                        switchToGerenciarForm();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    
                     event.consume();
                 });
             }
@@ -176,7 +185,7 @@ public class GerenciarController implements Initializable {
 
                 deleteIcon.setOnMouseClicked(event -> {
                     TableRow row = getTableView().getItems().get(getIndex());
-                    System.out.println("Deletando: " + row.getFuncionario().getNome());
+
                     registros.remove(row);
                     funcionarioRepositorio.delete(row.getFuncionario().getId());
                     event.consume();
