@@ -67,9 +67,13 @@ public class GerenciarFormController {
         try {
             Double salary_value = Double.parseDouble(salary.getText());
 
-            employee_repository.save(new Funcionario(name_value, cpf_value, salary_value));
+            if(name_value.trim().isEmpty() || cpf_value.trim().isEmpty()){
+                errorMessage.setText("Há campos vazios no formulário");
+            }else{
+                employee_repository.save(new Funcionario(name_value, cpf_value, salary_value));
 
-            switchToGerenciar();
+                switchToGerenciar();    
+            }
         } catch (NumberFormatException e) {
             errorMessage.setText("O salário deve ser um número válido.");
         } catch (UserAlreadyRegistered e) {
