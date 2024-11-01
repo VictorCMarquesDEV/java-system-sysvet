@@ -12,4 +12,6 @@ public interface GenericRepositoryInterface<T, ID> {
     List<T> findAll();
 
     void delete(ID id);
+
+    void update(T entity);
 }
