@@ -13,71 +13,11 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sysvet.controller.GerenciarController">
-   <center>
-      <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #f1f1f1;" BorderPane.alignment="CENTER">
-         <children>
-            <GridPane alignment="CENTER" layoutX="20.0" layoutY="20.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-color: #669999;">
-               <columnConstraints>
-                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.halignment="CENTER" GridPane.valignment="TOP">
-                     <children>
-                        <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" style="-fx-background-color: #669999;">
-                           <children>
-                              <Label contentDisplay="CENTER" prefHeight="40.0" prefWidth="715.0" style="-fx-background-color: #669999;" text="Funcionarios">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                                 <padding>
-                                    <Insets left="20.0" right="20.0" />
-                                 </padding>
-                              </Label>
-                              <ImageView fitHeight="30.0" fitWidth="30.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
-                                 <image>
-                                    <Image url="@../images/icon_realoading.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                           <columnConstraints>
-                              <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" />
-                              <ColumnConstraints halignment="CENTER" minWidth="-Infinity" prefWidth="75.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints valignment="CENTER" />
-                           </rowConstraints>
-                        </GridPane>
-                     </children>
-                  </Pane>
-                  <TableView fx:id="table" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="566.0" style="-fx-font-size: 14;" GridPane.rowIndex="1">
-                    <columns>
-                      <TableColumn fx:id="name" maxWidth="1.7976931348623157E308" prefWidth="225.0" style="-fx-alignment: center_left;" text="Nome" />
-                        <TableColumn fx:id="cpf" maxWidth="1.7976931348623157E308" prefWidth="210.0" style="-fx-alignment: center;" text="CPF" />
-                      <TableColumn fx:id="salary" maxWidth="1.7976931348623157E308" prefWidth="210.0" style="-fx-alignment: center;" text="Salário" />
-                        <TableColumn fx:id="editIcon" maxWidth="1.7976931348623157E308" prefWidth="70.0" style="-fx-alignment: center;" />
-                        <TableColumn fx:id="deleteIcon" maxWidth="1.7976931348623157E308" prefWidth="70.0" style="-fx-alignment: center;" />
-                    </columns>
-                  </TableView>
-               </children>
-            </GridPane>
-            <Button layoutX="321.0" layoutY="640.0" mnemonicParsing="false" onAction="#switchToGerenciarForm" prefHeight="41.0" prefWidth="211.0" style="-fx-background-color: #669999;" text="Cadastrar funcionário" textFill="WHITE">
-               <font>
-                  <Font size="16.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-         </children></Pane>
-   </center>
    <left>
       <VBox maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="250.0" style="-fx-background-color: #669999;" BorderPane.alignment="CENTER">
          <children>
@@ -138,4 +78,71 @@
          </children>
       </VBox>
    </left>
+   <center>
+      <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="683.0" prefWidth="791.0" BorderPane.alignment="CENTER">
+         <children>
+            <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="585.0" prefWidth="790.0" style="-fx-border-color: #669999;" StackPane.alignment="TOP_CENTER">
+               <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="40.0" style="-fx-background-color: #669999;">
+                     <children>
+                        <Label contentDisplay="CENTER" prefHeight="40.0" prefWidth="715.0" style="-fx-background-color: #669999;" text="Funcionarios">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <padding>
+                              <Insets left="20.0" right="20.0" />
+                           </padding>
+                        </Label>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                           <image>
+                              <Image url="@../images/icon_realoading.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" />
+                        <ColumnConstraints halignment="CENTER" minWidth="-Infinity" prefWidth="75.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints valignment="CENTER" />
+                     </rowConstraints>
+                  </GridPane>
+                  <TableView fx:id="table" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-font-size: 14;" GridPane.rowIndex="1">
+                    <columns>
+                      <TableColumn fx:id="name" maxWidth="1.7976931348623157E308" prefWidth="225.0" style="-fx-alignment: center_left;" text="Nome" />
+                        <TableColumn fx:id="cpf" maxWidth="1.7976931348623157E308" prefWidth="210.0" style="-fx-alignment: center;" text="CPF" />
+                      <TableColumn fx:id="salary" maxWidth="1.7976931348623157E308" prefWidth="210.0" style="-fx-alignment: center;" text="Salário" />
+                        <TableColumn fx:id="editIcon" maxWidth="1.7976931348623157E308" prefWidth="70.0" style="-fx-alignment: center;" />
+                        <TableColumn fx:id="deleteIcon" maxWidth="1.7976931348623157E308" prefWidth="70.0" style="-fx-alignment: center;" />
+                    </columns>
+                  </TableView>
+               </children>
+               <StackPane.margin>
+                  <Insets top="20.0" />
+               </StackPane.margin>
+            </GridPane>
+            <Button mnemonicParsing="false" onAction="#switchToGerenciarForm" prefHeight="41.0" prefWidth="211.0" style="-fx-background-color: #669999;" text="Cadastrar funcionário" textFill="WHITE" StackPane.alignment="BOTTOM_CENTER">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <StackPane.margin>
+                  <Insets bottom="20.0" />
+               </StackPane.margin>
+            </Button>
+         </children>
+         <padding>
+            <Insets left="20.0" right="20.0" />
+         </padding>
+      </StackPane>
+   </center>
 </BorderPane>
