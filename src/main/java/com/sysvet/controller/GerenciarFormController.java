@@ -2,19 +2,22 @@ package com.sysvet.controller;
 
 import com.sysvet.App;
 
+import context.GerenciarContext;
 import exceptions.UserAlreadyRegistered;
-
 import java.io.IOException;
-
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import models.Funcionario;
 import repositories.FuncionarioRepository;
 import utils.hibernateSessionFactorySingleton;
 
-public class GerenciarFormController {
+public class GerenciarFormController implements Initializable{
     FuncionarioRepository employee_repository = new FuncionarioRepository(hibernateSessionFactorySingleton.getSessionFactory());
 
     @FXML
@@ -28,6 +31,9 @@ public class GerenciarFormController {
 
     @FXML
     private Label errorMessage;
+
+    @FXML
+    private Text title;
 
     @FXML
     private void switchToLogin() throws IOException {
@@ -70,18 +76,38 @@ public class GerenciarFormController {
             if(name_value.trim().isEmpty() || cpf_value.trim().isEmpty()){
                 errorMessage.setText("Há campos vazios no formulário");
             }else{
-                employee_repository.save(new Funcionario(name_value, cpf_value, salary_value));
+
+                if(GerenciarContext.getInstance().getEdit()){
+                    GerenciarContext.getInstance().getEmployee().setNome(name_value);
+                    GerenciarContext.getInstance().getEmployee().setSalario(salary_value);
+
+                    employee_repository.update(GerenciarContext.getInstance().getEmployee());
+                }else{
+                    employee_repository.save(new Funcionario(name_value, cpf_value, salary_value));
+                }
 
                 switchToGerenciar();    
             }
         } catch (NumberFormatException e) {
             errorMessage.setText("O salário deve ser um número válido.");
-        } catch (UserAlreadyRegistered e) {
+        }catch (UserAlreadyRegistered e) {
             // Captura a exceção personalizada e exibe a mensagem
             errorMessage.setText(e.getMessage());
-        } catch (Exception e) {
+        }catch (Exception e) {
             // Captura outras exceções, se necessário
             errorMessage.setText("Erro: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        if(GerenciarContext.getInstance().getEdit()){
+            name.setText(GerenciarContext.getInstance().getEmployee().getNome());
+            cpf.setText(GerenciarContext.getInstance().getEmployee().getCpf());
+            cpf.setDisable(true);
+            salary.setText(Double.toString(GerenciarContext.getInstance().getEmployee().getSalario()));
+
+            title.setText("Atualização de funcionário");
         }
     }
 }
