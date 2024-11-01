@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import exceptions.UserAlreadyRegistered;
 import repositories.interfaces.GenericRepositoryInterface;
 
 public class GenericRepository<T, ID> implements GenericRepositoryInterface<T, ID> {
@@ -18,15 +19,18 @@ public class GenericRepository<T, ID> implements GenericRepositoryInterface<T, I
     }
 
     @Override
-    public void save(T entity) {
+    public void save(T entity) throws UserAlreadyRegistered {
         Transaction transaction = null;
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
             session.persist(entity);
             transaction.commit();
         } catch (Exception e) {
-            if (transaction != null) transaction.rollback();
+            if (transaction != null)
+                transaction.rollback();
             e.printStackTrace();
+
+            throw e;
         }
     }
 
@@ -45,6 +49,20 @@ public class GenericRepository<T, ID> implements GenericRepositoryInterface<T, I
     }
 
     @Override
+    public void update(T entity) {
+        Transaction transaction = null;
+        try (Session session = sessionFactory.openSession()) {
+            transaction = session.beginTransaction();
+            session.merge(entity);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null)
+                transaction.rollback();
+            e.printStackTrace();
+        }
+    }
+
+    @Override
     public void delete(ID id) {
         Transaction transaction = null;
         try (Session session = sessionFactory.openSession()) {
@@ -55,7 +73,8 @@ public class GenericRepository<T, ID> implements GenericRepositoryInterface<T, I
             }
             transaction.commit();
         } catch (Exception e) {
-            if (transaction != null) transaction.rollback();
+            if (transaction != null)
+                transaction.rollback();
             e.printStackTrace();
         }
     }

@@ -13,19 +13,20 @@ public class Funcionario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
-    @Column(name = "nome",nullable = false)
+
+    @Column(name = "nome", nullable = false)
     private String nome;
-    
-    @Column(name = "cpf",unique = true,nullable = false)
+
+    @Column(name = "cpf", unique = true, nullable = false)
     private String cpf;
 
-    @Column(name = "salario",nullable = false)
+    @Column(name = "salario", nullable = false)
     private double salario;
 
-    public Funcionario(){}
+    public Funcionario() {
+    }
 
-    public Funcionario(String nome, String cpf, double salario){
+    public Funcionario(String nome, String cpf, double salario) {
         this.nome = nome;
         this.cpf = cpf;
         this.salario = salario;
@@ -35,19 +36,19 @@ public class Funcionario {
         return id;
     }
 
-    public String getName() {
+    public String getNome() {
         return nome;
     }
 
-    public void setName(String nome){
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public String getCPF() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCPF(String cpf){
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
@@ -55,7 +56,7 @@ public class Funcionario {
         return salario;
     }
 
-    public void setSalario(double salario){
+    public void setSalario(double salario) {
         this.salario = salario;
     }
 }

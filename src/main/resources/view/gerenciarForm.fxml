@@ -4,8 +4,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -16,8 +15,9 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sysvet.controller.GerenciarController">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sysvet.controller.GerenciarFormController">
    <left>
       <VBox maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="250.0" style="-fx-background-color: #669999;" BorderPane.alignment="CENTER">
          <children>
@@ -79,56 +79,58 @@
       </VBox>
    </left>
    <center>
-      <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="683.0" prefWidth="791.0" BorderPane.alignment="CENTER">
+      <StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
          <children>
-            <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="585.0" prefWidth="790.0" style="-fx-border-color: #669999;" StackPane.alignment="TOP_CENTER">
+            <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastrar funcionário" StackPane.alignment="TOP_CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <StackPane.margin>
+                  <Insets top="20.0" />
+               </StackPane.margin>
+            </Text>
+            <GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="544.0" prefWidth="497.0" StackPane.alignment="TOP_CENTER">
                <columnConstraints>
                   <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
                </columnConstraints>
                <rowConstraints>
-                  <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="-Infinity" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="-Infinity" minHeight="40.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="40.0" style="-fx-background-color: #669999;">
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="300.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <children>
-                        <Label contentDisplay="CENTER" prefHeight="40.0" prefWidth="715.0" style="-fx-background-color: #669999;" text="Funcionarios">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <padding>
-                              <Insets left="20.0" right="20.0" />
-                           </padding>
-                        </Label>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
-                           <image>
-                              <Image url="@../images/icon_realoading.png" />
-                           </image>
-                        </ImageView>
+                        <Label alignment="BASELINE_LEFT" contentDisplay="TOP" text="Nome" />
+                        <TextField fx:id="name" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="300.0" />
                      </children>
-                     <columnConstraints>
-                        <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" />
-                        <ColumnConstraints halignment="CENTER" minWidth="-Infinity" prefWidth="75.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints valignment="CENTER" />
-                     </rowConstraints>
-                  </GridPane>
-                  <TableView fx:id="table" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-font-size: 14;" GridPane.rowIndex="1">
-                    <columns>
-                      <TableColumn fx:id="name" maxWidth="1.7976931348623157E308" prefWidth="225.0" style="-fx-alignment: center_left;" text="Nome" />
-                        <TableColumn fx:id="cpf" maxWidth="1.7976931348623157E308" prefWidth="210.0" style="-fx-alignment: center;" text="CPF" />
-                      <TableColumn fx:id="salary" maxWidth="1.7976931348623157E308" prefWidth="210.0" style="-fx-alignment: center;" text="Salário" />
-                        <TableColumn fx:id="editIcon" maxWidth="1.7976931348623157E308" prefWidth="70.0" style="-fx-alignment: center;" />
-                        <TableColumn fx:id="deleteIcon" maxWidth="1.7976931348623157E308" prefWidth="70.0" style="-fx-alignment: center;" />
-                    </columns>
-                  </TableView>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" />
+                     </GridPane.margin>
+                  </VBox>
+                  <VBox layoutX="109.0" layoutY="127.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="300.0" GridPane.rowIndex="1">
+                     <children>
+                        <Label alignment="BASELINE_LEFT" contentDisplay="TOP" text="CPF" />
+                        <TextField fx:id="cpf" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="300.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" />
+                     </GridPane.margin>
+                  </VBox>
+                  <VBox layoutX="109.0" layoutY="320.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="50.0" prefWidth="300.0" GridPane.rowIndex="2">
+                     <children>
+                        <Label alignment="BASELINE_LEFT" contentDisplay="TOP" text="Salário" />
+                        <TextField fx:id="salary" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="20.0" prefWidth="300.0" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" />
+                     </GridPane.margin>
+                  </VBox>
+                  <Label fx:id="errorMessage" textFill="RED" GridPane.rowIndex="3" />
                </children>
-               <StackPane.margin>
-                  <Insets top="20.0" />
-               </StackPane.margin>
             </GridPane>
-            <Button mnemonicParsing="false" onAction="#switchToGerenciarForm" prefHeight="41.0" prefWidth="211.0" style="-fx-background-color: #669999;" text="Cadastrar funcionário" textFill="WHITE" StackPane.alignment="BOTTOM_CENTER">
+            <Button mnemonicParsing="false" onAction="#save" prefHeight="41.0" prefWidth="211.0" style="-fx-background-color: #669999;" text="Salvar" textFill="WHITE" StackPane.alignment="BOTTOM_CENTER">
                <font>
                   <Font size="16.0" />
                </font>
@@ -140,9 +142,6 @@
                </StackPane.margin>
             </Button>
          </children>
-         <padding>
-            <Insets left="20.0" right="20.0" />
-         </padding>
       </StackPane>
    </center>
 </BorderPane>

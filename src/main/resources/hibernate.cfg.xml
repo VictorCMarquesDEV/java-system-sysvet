@@ -19,5 +19,6 @@
         <!-- Mapping files or annotated classes -->
         <!-- Add your entity classes or mapping files here  for ex: entity used below -->
         <mapping class="models.Funcionario"/>
+        <mapping class="models.Consulta"/>
     </session-factory>
 </hibernate-configuration>
