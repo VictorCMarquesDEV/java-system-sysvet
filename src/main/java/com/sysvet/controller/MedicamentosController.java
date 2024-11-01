@@ -1,10 +1,34 @@
 package com.sysvet.controller;
 
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import com.sysvet.App;
 import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 
 public class MedicamentosController {
+
+    @FXML
+    private TableView<?> listOfMeds;
+
+    @FXML
+    private TableColumn<?, ?> med;
+
+    @FXML
+    private TableColumn<?, ?> qntd;
+
+    @FXML
+    private TextField medName;
+
+    @FXML
+    private TextField medQntd;
+
+    @FXML
+    void addMed(MouseEvent event) {
+
+    }
 
     @FXML
     private void switchToLogin() throws IOException {
