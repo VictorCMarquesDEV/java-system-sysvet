@@ -8,6 +8,7 @@ import org.hibernate.SessionFactory;
 import com.sysvet.App;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
@@ -18,7 +19,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import models.Funcionario;
 import repositories.FuncionarioRepository;
@@ -80,8 +80,8 @@ public class GerenciarController implements Initializable {
     private TableView<TableRow> table;
 
     @FXML
-    void newEmployee(MouseEvent event) {
-
+    void switchToGerenciarForm(ActionEvent event) throws IOException {
+        App.setRoot("/view/gerenciarForm");
     }
 
     @FXML
