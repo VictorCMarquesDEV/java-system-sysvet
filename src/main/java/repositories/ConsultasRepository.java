@@ -4,7 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 
-import exceptions.UserAlreadyRegistered;
+import exceptions.GenericException;
 import models.Consulta;
 
 public class ConsultasRepository extends GenericRepository<Consulta, Long> {
@@ -17,7 +17,7 @@ public class ConsultasRepository extends GenericRepository<Consulta, Long> {
     }
 
     @Override
-    public void save(Consulta entity) throws UserAlreadyRegistered {
+    public void save(Consulta entity) throws GenericException {
         try (Session session = sessionFactory.openSession()) {
             Query<Consulta> query = session.createNativeQuery(
                     "SELECT * FROM consultas WHERE data = :data AND hora = :hora",
@@ -29,7 +29,7 @@ public class ConsultasRepository extends GenericRepository<Consulta, Long> {
             if (consulta == null) {
                 super.save(entity);
             } else {
-                throw new UserAlreadyRegistered();
+                throw new GenericException("Já existe uma consulta marcada para esse horário!");
             }
         } catch (Exception e) {
             e.printStackTrace();

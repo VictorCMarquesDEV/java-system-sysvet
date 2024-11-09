@@ -3,7 +3,7 @@ package com.sysvet.controller;
 import com.sysvet.App;
 
 import context.GerenciarContext;
-import exceptions.UserAlreadyRegistered;
+import exceptions.GenericException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -99,7 +99,7 @@ public class GerenciarFormController implements Initializable {
             }
         } catch (NumberFormatException e) {
             errorMessage.setText("O salário deve ser um número válido.");
-        } catch (UserAlreadyRegistered e) {
+        } catch (GenericException e) {
             // Captura a exceção personalizada e exibe a mensagem
             errorMessage.setText(e.getMessage());
         } catch (Exception e) {
