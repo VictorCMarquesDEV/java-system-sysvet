@@ -2,12 +2,14 @@ package com.sysvet.controller;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
-import java.sql.Time;
+import java.util.List;
 import java.util.ResourceBundle;
+
+import org.hibernate.SessionFactory;
 
 import com.sysvet.App;
 
+import context.ConsultasContext;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -23,6 +25,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import models.Consulta;
+import repositories.ConsultasRepository;
+import utils.hibernateSessionFactorySingleton;
 
 public class InicioController implements Initializable {
 
@@ -33,25 +37,27 @@ public class InicioController implements Initializable {
             this.consulta = consulta;
         };
 
-        public Date getData() {
+        public String getData() {
             return this.consulta.getData();
         };
 
-        public Time getHora() {
+        public String getHora() {
             return this.consulta.getHora();
         };
 
-        public String getDescricao() {
-            return this.consulta.getDescricao();
+        public String getCliente() {
+            return this.consulta.getCliente();
         };
 
-        public String getClientepet() {
-            return this.consulta.getClientepet();
+        public String getPet() {
+            return this.consulta.getPet();
         };
 
-        public String getResponsavel() {
-            return this.consulta.getResponsavel();
-        };
+        public ImageView getEditIcon() {
+            return new ImageView(
+                    new Image(
+                            App.class.getResourceAsStream("/images/pencil-line.png")));
+        }
 
         public ImageView getCheckIcon() {
             return new ImageView(
@@ -65,19 +71,19 @@ public class InicioController implements Initializable {
     }
 
     @FXML
-    private TableColumn<TableRow, Date> data;
+    private TableColumn<TableRow, String> data;
 
     @FXML
-    private TableColumn<TableRow, Time> hora;
+    private TableColumn<TableRow, String> hora;
 
     @FXML
-    private TableColumn<TableRow, String> descricao;
+    private TableColumn<TableRow, String> cliente;
 
     @FXML
-    private TableColumn<TableRow, String> clientepet;
+    private TableColumn<TableRow, String> pet;
 
     @FXML
-    private TableColumn<TableRow, String> responsavel;
+    private TableColumn<TableRow, ImageView> editIcon;
 
     @FXML
     private TableColumn<TableRow, ImageView> checkIcon;
@@ -90,22 +96,10 @@ public class InicioController implements Initializable {
 
     }
 
-    ObservableList<TableRow> registros = FXCollections.observableArrayList(
-            new TableRow(
-                    new Consulta(java.sql.Date.valueOf("2024-01-01"), java.sql.Time.valueOf("08:00:00"), "Consulta 1",
-                            "Vitor / Lacoste", "David Rios")),
-            new TableRow(
-                    new Consulta(java.sql.Date.valueOf("2024-01-01"), java.sql.Time.valueOf("08:30:00"), "Consulta 2",
-                            "Vitor / Junin", "Nícolle")),
-            new TableRow(
-                    new Consulta(java.sql.Date.valueOf("2024-01-01"), java.sql.Time.valueOf("09:00:00"), "Consulta 3",
-                            "Vitor / Negão", "Helen")),
-            new TableRow(
-                    new Consulta(java.sql.Date.valueOf("2024-01-01"), java.sql.Time.valueOf("09:30:00"), "Consulta 4",
-                            "Vitor / Robson", "Victor")),
-            new TableRow(
-                    new Consulta(java.sql.Date.valueOf("2024-01-01"), java.sql.Time.valueOf("10:00:00"), "Consulta 5",
-                            "Vitor / Gordo Bala", "Vitor Pereira")));
+    @FXML
+    void switchToConsultasForm() throws IOException {
+        App.setRoot("/view/consultasForm");
+    }
 
     @FXML
     private void switchToLogin() throws IOException {
@@ -137,14 +131,66 @@ public class InicioController implements Initializable {
         App.setRoot("/view/medicamentos");
     }
 
+    SessionFactory sessionFactory = hibernateSessionFactorySingleton.getSessionFactory();
+
+    ConsultasRepository consultasRepositorio = new ConsultasRepository(sessionFactory);
+
+    ObservableList<TableRow> registros = FXCollections.observableArrayList();
+
+    List<Consulta> consultas = consultasRepositorio.findAll();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        data.setCellValueFactory(new PropertyValueFactory<TableRow, Date>("data"));
-        hora.setCellValueFactory(new PropertyValueFactory<TableRow, Time>("hora"));
-        descricao.setCellValueFactory(new PropertyValueFactory<TableRow, String>("descricao"));
-        clientepet.setCellValueFactory(new PropertyValueFactory<TableRow, String>("clientepet"));
-        responsavel.setCellValueFactory(new PropertyValueFactory<TableRow, String>("responsavel"));
+
+        consultas.forEach(consulta -> {
+            registros.add(
+                    new TableRow(consulta));
+        });
+
+        data.setCellValueFactory(new PropertyValueFactory<TableRow, String>("data"));
+        hora.setCellValueFactory(new PropertyValueFactory<TableRow, String>("hora"));
+        cliente.setCellValueFactory(new PropertyValueFactory<TableRow, String>("cliente"));
+        pet.setCellValueFactory(new PropertyValueFactory<TableRow, String>("pet"));
+        editIcon.setCellValueFactory(new PropertyValueFactory<TableRow, ImageView>("editIcon"));
         checkIcon.setCellValueFactory(new PropertyValueFactory<TableRow, ImageView>("checkIcon"));
+
+        editIcon.setCellFactory(column -> new TableCell<TableRow, ImageView>() {
+            private final ImageView editIcon = new ImageView(
+                    new Image(App.class.getResourceAsStream("/images/pencil-line.png")));
+
+            {
+                editIcon.setFitWidth(30);
+                editIcon.setFitHeight(30);
+                editIcon.setCursor(Cursor.HAND);
+
+                editIcon.setOnMouseClicked(event -> {
+                    TableRow row = getTableView().getItems().get(getIndex());
+
+                    ConsultasContext.getInstance().setEmployee(row.getConsulta());
+                    ConsultasContext.getInstance().setEdit(true);
+
+                    try {
+                        switchToConsultasForm();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    event.consume();
+                });
+            }
+
+            @Override
+            protected void updateItem(ImageView item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setGraphic(null);
+                } else {
+                    HBox hBox = new HBox(editIcon);
+                    hBox.setAlignment(Pos.CENTER);
+                    setGraphic(hBox);
+                }
+            }
+        });
 
         checkIcon.setCellFactory(column -> new TableCell<TableRow, ImageView>() {
             private final ImageView checkIcon = new ImageView(
@@ -157,8 +203,9 @@ public class InicioController implements Initializable {
 
                 checkIcon.setOnMouseClicked(event -> {
                     TableRow row = getTableView().getItems().get(getIndex());
-                    System.out.println("Deletando: " + row.getConsulta().getDescricao());
+
                     registros.remove(row);
+                    consultasRepositorio.delete(row.getConsulta().getId());
                     event.consume();
                 });
             }
