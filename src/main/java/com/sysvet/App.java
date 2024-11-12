@@ -56,7 +56,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        new hibernateSessionFactorySingleton();
+       new hibernateSessionFactorySingleton();
         
         launch();        
     }
