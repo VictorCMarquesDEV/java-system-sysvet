@@ -58,10 +58,10 @@
                               <RowConstraints valignment="CENTER" />
                            </rowConstraints>
                         </GridPane>
-                        <TableView fx:id="table" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="459.0" prefWidth="788.0" style="-fx-font-size: 14;" GridPane.rowIndex="1">
+                        <TableView fx:id="medTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="459.0" prefWidth="788.0" style="-fx-font-size: 14;" GridPane.rowIndex="1">
                            <columns>
                               <TableColumn fx:id="name" maxWidth="1.7976931348623157E308" prefWidth="597.0" style="-fx-alignment: center_left;" text="Nome" />
-                              <TableColumn fx:id="salary" maxWidth="1.7976931348623157E308" prefWidth="190.0" style="-fx-alignment: center;" text="Quantidade" />
+                              <TableColumn fx:id="quantity" maxWidth="1.7976931348623157E308" prefWidth="190.0" style="-fx-alignment: center;" text="Quantidade" />
                            </columns>
                         </TableView>
                      </children>
@@ -82,8 +82,8 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <TextField layoutX="50.0" layoutY="554.0" prefHeight="25.0" prefWidth="189.0" promptText="nome" />
-            <TextField layoutX="50.0" layoutY="605.0" prefHeight="25.0" prefWidth="191.0" promptText="Quantidade" />
+            <TextField fx:id="medName" layoutX="50.0" layoutY="554.0" prefHeight="25.0" prefWidth="189.0" promptText="nome" />
+            <TextField fx:id="medQntd" layoutX="50.0" layoutY="605.0" prefHeight="25.0" prefWidth="191.0" promptText="Quantidade" />
             <GridPane layoutX="387.0" layoutY="566.0" prefHeight="91.0" prefWidth="413.0" style="-fx-background-color: #669999;">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="330.0" minWidth="10.0" prefWidth="330.0" />
