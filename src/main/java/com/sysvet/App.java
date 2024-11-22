@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import models.Usuarios;
 import utils.hibernateSessionFactorySingleton;
 import java.io.IOException;
 
@@ -15,6 +16,7 @@ public class App extends Application {
 
     private static Scene scene;
     private static Stage primaryStage; // Referência ao Stage principal
+    private static Object usuarioLogado; // Variável estática para armazenar o usuário logado
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -53,6 +55,14 @@ public class App extends Application {
             primaryStage.setMinHeight(780);
         }
 
+    }
+
+    public static Object getUsuarioLogado() {
+        return usuarioLogado;
+    }
+
+    public static void setUsuarioLogado(Object usuario) {
+        usuarioLogado = usuario;
     }
 
     public static void main(String[] args) {

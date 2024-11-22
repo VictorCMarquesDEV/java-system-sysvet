@@ -170,6 +170,11 @@
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Button>
+                        <Button alignment="CENTER" blendMode="MULTIPLY" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#switchToTrocarSenha" prefHeight="50.0" prefWidth="250.0" text="Trocar Senha" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
                      </children>
                   </VBox>
                </center>

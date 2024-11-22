@@ -55,6 +55,12 @@ public class GerenciarFormController implements Initializable {
     }
 
     @FXML
+    private void switchToTrocarSenha() throws IOException {
+        GerenciarContext.getInstance().clear();
+        App.setRoot("/view/trocarsenha");
+    }
+
+    @FXML
     private void switchToGerenciar() throws IOException {
         GerenciarContext.getInstance().clear();
         App.setRoot("/view/gerenciar");

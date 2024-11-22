@@ -100,6 +100,11 @@ public class GerenciarController implements Initializable {
     }
 
     @FXML
+    private void switchToTrocarSenha() throws IOException {
+        App.setRoot("/view/trocarsenha");
+    }
+
+    @FXML
     private void switchToGerenciar() throws IOException {
         App.setRoot("/view/gerenciar");
     }

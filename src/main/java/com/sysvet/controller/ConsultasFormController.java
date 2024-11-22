@@ -83,6 +83,12 @@ public class ConsultasFormController implements Initializable {
     }
 
     @FXML
+    private void switchToTrocarSenha() throws IOException {
+        ConsultasContext.getInstance().clear();
+        App.setRoot("/view/trocarsenha");
+    }
+
+    @FXML
     void save(ActionEvent event) {
         String data_value = data.getText();
         String hora_value = hora.getText();

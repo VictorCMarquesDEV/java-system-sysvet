@@ -17,6 +17,11 @@ public class MedicamentosController {
     }
 
     @FXML
+    private void switchToTrocarSenha() throws IOException {
+        App.setRoot("/view/trocarsenha");
+    }
+
+    @FXML
     private void switchToConsultas() throws IOException {
         App.setRoot("/view/consultas");
     }
