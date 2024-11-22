@@ -6,7 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-import exceptions.UserAlreadyRegistered;
+import exceptions.GenericException;
 import repositories.interfaces.GenericRepositoryInterface;
 
 public class GenericRepository<T, ID> implements GenericRepositoryInterface<T, ID> {
@@ -19,7 +19,7 @@ public class GenericRepository<T, ID> implements GenericRepositoryInterface<T, I
     }
 
     @Override
-    public void save(T entity) throws UserAlreadyRegistered {
+    public void save(T entity) throws GenericException {
         Transaction transaction = null;
         try (Session session = sessionFactory.openSession()) {
             transaction = session.beginTransaction();
