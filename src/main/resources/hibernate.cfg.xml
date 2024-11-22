@@ -20,8 +20,8 @@
         <!-- Add your entity classes or mapping files here  for ex: entity used below -->
         <mapping class="models.Funcionario"/>
         <mapping class="models.Consulta"/>
+        <mapping class="models.Medicamentos"/>
         <mapping class="models.Admin"/>
         <mapping class="models.Usuarios"/>
-
     </session-factory>
 </hibernate-configuration>
