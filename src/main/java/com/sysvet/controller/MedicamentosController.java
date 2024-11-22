@@ -9,9 +9,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import models.Funcionario;
 import models.Medicamentos;
+import org.hibernate.SessionFactory;
+import repositories.FuncionarioRepository;
+import repositories.medicamentoRepository;
+import utils.hibernateSessionFactorySingleton;
 
 import java.io.IOException;
+import java.util.List;
 
 public class MedicamentosController {
 
@@ -24,22 +30,30 @@ public class MedicamentosController {
     @FXML
     private TableColumn<Medicamentos, Integer> quantity;
 
+    private medicamentoRepository repo = new medicamentoRepository(hibernateSessionFactorySingleton.getSessionFactory());
 
-    // Lista de medicamentos (simulação)
-    private ObservableList<Medicamentos> medicamentos = FXCollections.observableArrayList();
+    ObservableList<Medicamentos> registros = FXCollections.observableArrayList();
+
+    List<Medicamentos> medicamentos = repo.findAll();
 
     @FXML
     public void initialize() {
+
+        medicamentos.forEach(medicamentos -> {
+            registros.add(
+                  medicamentos
+            );});
+
         // Configurar colunas da tabela
         name.setCellValueFactory(new PropertyValueFactory<>("nome"));
         quantity.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
 
         // Adicionar dados de exemplo
-        medicamentos.add(new Medicamentos("Paracetamol",20));
-        medicamentos.add(new Medicamentos("Ibuprofeno", 15));
+        registros.add(new Medicamentos("Paracetamol",20));
+        registros.add(new Medicamentos("Ibuprofeno", 15));
 
         // Vincular lista de medicamentos à tabela
-        medTable.setItems(medicamentos);
+        medTable.setItems(registros);
     }
 
     @FXML
