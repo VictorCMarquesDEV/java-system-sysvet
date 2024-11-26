@@ -1,7 +1,7 @@
 package com.sysvet.controller;
 
 import com.sysvet.App;
-import exceptions.GenericException;  // Importar a GenericException
+import exceptions.GenericException;  
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
@@ -49,9 +49,6 @@ public class CadastroController {
 
     @FXML
     private TextField historicoMedicoAnimal;
-
-    @FXML
-    private Label errorMessage;
 
     @FXML
     private Button cadastrarButton;
@@ -152,7 +149,7 @@ public class CadastroController {
             showSuccessAlert();
 
             // Redireciona para a tela de cadastro
-           switchToCadastro();
+           switchToInicio();
 
 
         } catch (Exception e) {

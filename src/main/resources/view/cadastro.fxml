@@ -1,24 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="686.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sysvet.controller.CadastroController">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="686.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sysvet.controller.CadastroController">
    <center>
       <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="688.0" prefWidth="830.0" style="-fx-background-color: #f1f1f1;" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="309.0" layoutY="269.0" prefHeight="115.0" prefWidth="241.0" text="Página de cadastro">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
+            <SplitPane dividerPositions="0.1237410071942446" layoutX="2.0" layoutY="2.0" orientation="VERTICAL" prefHeight="735.0" prefWidth="827.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="72.0" prefWidth="829.0" style="-fx-background-color: #669999;" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="685.0" prefWidth="821.0">
+                     <children>
+                        <TextField alignment="CENTER" layoutX="236.0" layoutY="22.0" prefHeight="25.0" prefWidth="516.0" text="Dados do Proprietário" AnchorPane.leftAnchor="160.0">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </TextField>
+                        <Label layoutX="236.0" layoutY="83.0" text="Nome:" AnchorPane.leftAnchor="160.0" />
+                        <TextField fx:id="nomeProprietario" layoutX="236.0" layoutY="100.0" prefHeight="25.0" prefWidth="516.0" AnchorPane.leftAnchor="160.0" />
+                        <Label layoutX="236.0" layoutY="134.0" text="CPF:" AnchorPane.leftAnchor="160.0" />
+                        <TextField fx:id="cpfProprietario" layoutX="236.0" layoutY="151.0" prefHeight="25.0" prefWidth="191.0" AnchorPane.leftAnchor="160.0" />
+                        <Label layoutX="236.0" layoutY="185.0" text="Endereço:" AnchorPane.leftAnchor="160.0" />
+                        <TextField fx:id="enderecoProprietario" layoutX="236.0" layoutY="202.0" prefHeight="25.0" prefWidth="516.0" AnchorPane.leftAnchor="160.0" />
+                        <Label layoutX="488.0" layoutY="134.0" text="Telefone:" />
+                        <TextField fx:id="phone" layoutX="488.0" layoutY="151.0" prefHeight="25.0" prefWidth="191.0" />
+                        <TextField alignment="CENTER" layoutX="236.0" layoutY="264.0" prefHeight="25.0" prefWidth="516.0" text="Dados do Animal" AnchorPane.leftAnchor="160.0">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </TextField>
+                        <Label layoutX="236.0" layoutY="328.0" text="Nome:" AnchorPane.leftAnchor="160.0" />
+                        <TextField fx:id="nomeAnimal" layoutX="236.0" layoutY="345.0" prefHeight="25.0" prefWidth="516.0" AnchorPane.leftAnchor="160.0" />
+                        <Label layoutX="236.0" layoutY="379.0" text="Espécie:" AnchorPane.leftAnchor="160.0" />
+                        <TextField fx:id="especieAnimal" layoutX="236.0" layoutY="396.0" prefHeight="25.0" prefWidth="191.0" AnchorPane.leftAnchor="160.0" />
+                        <Label layoutX="488.0" layoutY="379.0" text="Raça:" />
+                        <TextField fx:id="racaAnimal" layoutX="488.0" layoutY="396.0" prefHeight="25.0" prefWidth="191.0" />
+                        <Label layoutX="236.0" layoutY="430.0" text="Data de Nascimento:" AnchorPane.leftAnchor="160.0" />
+                        <DatePicker fx:id="dataNascimentoAnimal" layoutX="236.0" layoutY="447.0" AnchorPane.leftAnchor="160.0" />
+                        <Label layoutX="236.0" layoutY="481.0" text="Histórico Médico:" AnchorPane.leftAnchor="160.0" />
+                        <TextField fx:id="historicoMedicoAnimal" layoutX="236.0" layoutY="498.0" prefHeight="25.0" prefWidth="516.0" AnchorPane.leftAnchor="160.0" />
+                        <Button fx:id="cadastrarButton" layoutX="281.0" layoutY="545.0" mnemonicParsing="false" onAction="#handlecadastrar" prefHeight="53.0" prefWidth="204.0" style="-fx-background-color: #669999;" text="Cadastrar" textFill="WHITE" AnchorPane.leftAnchor="350.0">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
          </children></Pane>
    </center>
    <left>
