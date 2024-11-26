@@ -2,10 +2,10 @@ package repositories.interfaces;
 
 import java.util.List;
 
-import exceptions.UserAlreadyRegistered;
+import exceptions.GenericException;
 
 public interface GenericRepositoryInterface<T, ID> {
-    void save(T entity) throws UserAlreadyRegistered;
+    void save(T entity) throws GenericException;
 
     T findById(ID id);
 

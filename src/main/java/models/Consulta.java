@@ -1,8 +1,5 @@
 package models;
 
-import java.sql.Date;
-import java.sql.Time;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,16 +15,19 @@ public class Consulta {
     private Long id;
 
     @Column(name = "data", nullable = false)
-    private Date data;
+    private String data;
 
     @Column(name = "hora", nullable = false)
-    private Time hora;
+    private String hora;
 
     @Column(name = "descricao", nullable = false)
     private String descricao;
 
-    @Column(name = "clientepet", nullable = false)
-    private String clientepet;
+    @Column(name = "cliente", nullable = false)
+    private String cliente;
+
+    @Column(name = "pet", nullable = false)
+    private String pet;
 
     @Column(name = "responsavel", nullable = false)
     private String responsavel;
@@ -35,11 +35,12 @@ public class Consulta {
     public Consulta() {
     }
 
-    public Consulta(Date data, Time hora, String descricao, String clientepet, String responsavel) {
+    public Consulta(String data, String hora, String descricao, String cliente, String pet, String responsavel) {
         this.data = data;
         this.hora = hora;
         this.descricao = descricao;
-        this.clientepet = clientepet;
+        this.cliente = cliente;
+        this.pet = pet;
         this.responsavel = responsavel;
     }
 
@@ -47,19 +48,19 @@ public class Consulta {
         return id;
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
 
-    public Time getHora() {
+    public String getHora() {
         return hora;
     }
 
-    public void setHora(Time hora) {
+    public void setHora(String hora) {
         this.hora = hora;
     }
 
@@ -71,12 +72,20 @@ public class Consulta {
         this.descricao = descricao;
     }
 
-    public String getClientepet() {
-        return clientepet;
+    public String getCliente() {
+        return cliente;
     }
 
-    public void setClientepet(String clientepet) {
-        this.clientepet = clientepet;
+    public void setCliente(String cliente) {
+        this.cliente = cliente;
+    }
+
+    public String getPet() {
+        return pet;
+    }
+
+    public void setPet(String pet) {
+        this.pet = pet;
     }
 
     public String getResponsavel() {

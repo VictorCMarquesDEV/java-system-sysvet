@@ -28,7 +28,6 @@
                     </columnConstraints>
                     <rowConstraints>
                       <RowConstraints minHeight="-Infinity" prefHeight="90.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="90.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
                         <GridPane prefHeight="80.0">
@@ -58,117 +57,6 @@
                               <RowConstraints minHeight="-Infinity" prefHeight="10.0" valignment="TOP" vgrow="SOMETIMES" />
                            </rowConstraints>
                         </GridPane>
-                        <GridPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefWidth="830.0" GridPane.rowIndex="1">
-                           <children>
-                              <GridPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0">
-                                 <children>
-                                    <Pane maxWidth="1.7976931348623157E308" prefWidth="310.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
-                                       <children>
-                                          <Label contentDisplay="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" prefWidth="310.0" style="-fx-background-color: #669999;" text="Clientes">
-                                             <font>
-                                                <Font size="18.0" />
-                                             </font>
-                                             <padding>
-                                                <Insets left="20.0" right="20.0" />
-                                             </padding>
-                                          </Label>
-                                       </children>
-                                       <opaqueInsets>
-                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                       </opaqueInsets>
-                                       <GridPane.margin>
-                                          <Insets />
-                                       </GridPane.margin>
-                                    </Pane>
-                                    <Pane maxWidth="-Infinity" minWidth="-Infinity" prefWidth="75.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
-                                       <children>
-                                          <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="60.0" prefWidth="75.0" style="-fx-background-color: #669999;" text="10">
-                                             <font>
-                                                <Font size="24.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                       <opaqueInsets>
-                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                       </opaqueInsets>
-                                       <GridPane.margin>
-                                          <Insets />
-                                       </GridPane.margin>
-                                    </Pane>
-                                 </children>
-                                 <columnConstraints>
-                                    <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" />
-                                    <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
-                                 </columnConstraints>
-                                 <padding>
-                                    <Insets left="20.0" right="10.0" top="20.0" />
-                                 </padding>
-                                 <rowConstraints>
-                                    <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" valignment="CENTER" vgrow="ALWAYS" />
-                                 </rowConstraints>
-                              </GridPane>
-                              <GridPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" GridPane.columnIndex="1">
-                                 <children>
-                                    <Pane maxWidth="-Infinity" minWidth="-Infinity" prefWidth="75.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
-                                       <children>
-                                          <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="60.0" prefWidth="75.0" style="-fx-background-color: #669999;" text="25">
-                                             <font>
-                                                <Font size="24.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                       <opaqueInsets>
-                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                       </opaqueInsets>
-                                       <GridPane.margin>
-                                          <Insets />
-                                       </GridPane.margin>
-                                    </Pane>
-                                    <Pane maxWidth="1.7976931348623157E308" prefWidth="310.0">
-                                       <children>
-                                          <Label contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="60.0" prefWidth="310.0" style="-fx-background-color: #669999;" text="Pets">
-                                             <font>
-                                                <Font size="18.0" />
-                                             </font>
-                                             <padding>
-                                                <Insets left="20.0" right="20.0" />
-                                             </padding>
-                                          </Label>
-                                       </children>
-                                       <opaqueInsets>
-                                          <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                                       </opaqueInsets>
-                                       <GridPane.margin>
-                                          <Insets />
-                                       </GridPane.margin>
-                                    </Pane>
-                                 </children>
-                                 <columnConstraints>
-                                    <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" />
-                                    <ColumnConstraints hgrow="SOMETIMES" />
-                                 </columnConstraints>
-                                 <padding>
-                                    <Insets left="10.0" right="20.0" top="20.0" />
-                                 </padding>
-                                 <rowConstraints>
-                                    <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" valignment="CENTER" vgrow="ALWAYS" />
-                                 </rowConstraints>
-                                 <GridPane.margin>
-                                    <Insets />
-                                 </GridPane.margin>
-                              </GridPane>
-                              <Separator prefWidth="200.0" GridPane.rowIndex="1" />
-                              <Separator prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                           </children>
-                           <columnConstraints>
-                              <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" />
-                              <ColumnConstraints hgrow="SOMETIMES" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints maxHeight="-Infinity" minHeight="100.0" prefHeight="100.0" valignment="CENTER" vgrow="ALWAYS" />
-                              <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="10.0" valignment="CENTER" vgrow="ALWAYS" />
-                           </rowConstraints>
-                        </GridPane>
                      </children>
                   </GridPane>
                </top>
@@ -179,7 +67,7 @@
                      </columnConstraints>
                      <rowConstraints>
                         <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="40.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="50.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
                         <Pane prefHeight="200.0" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.valignment="TOP">
@@ -214,15 +102,15 @@
                            <columns>
                               <TableColumn fx:id="data" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="100.0" style="-fx-alignment: center;" text="Data" />
                               <TableColumn fx:id="hora" maxWidth="1.7976931348623157E308" minWidth="-Infinity" style="-fx-alignment: center;" text="Hora" />
-                              <TableColumn fx:id="descricao" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="200.0" style="-fx-alignment: center;" text="Descrição" />
-                              <TableColumn fx:id="clientepet" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="200.0" style="-fx-alignment: center;" text="Cliente/Pet" />
-                              <TableColumn fx:id="responsavel" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="130.0" style="-fx-alignment: center;" text="Responsável" />
+                              <TableColumn fx:id="cliente" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="230.0" style="-fx-alignment: center;" text="Cliente" />
+                              <TableColumn fx:id="pet" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="230.0" style="-fx-alignment: center;" text="Pet" />
+                              <TableColumn fx:id="editIcon" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="75.0" style="-fx-alignment: center;" />
                               <TableColumn fx:id="checkIcon" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="75.0" style="-fx-alignment: center_left;" />
                            </columns>
                         </TableView>
                      </children>
                      <BorderPane.margin>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="25.0" />
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
                      </BorderPane.margin>
                   </GridPane>
                </center>
@@ -278,6 +166,11 @@
                            </font>
                         </Button>
                         <Button alignment="CENTER" blendMode="MULTIPLY" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#switchToGerenciar" prefHeight="50.0" prefWidth="250.0" text="Gerenciar Funcionários" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button alignment="CENTER" blendMode="MULTIPLY" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#switchToTrocarSenha" prefHeight="50.0" prefWidth="250.0" text="Trocar Senha" textAlignment="CENTER">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
