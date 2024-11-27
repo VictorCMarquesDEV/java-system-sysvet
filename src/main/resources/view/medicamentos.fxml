@@ -19,7 +19,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sysvet.controller.MedicamentosController">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sysvet.controller.MedicamentosController">
    <center>
       <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="688.0" prefWidth="830.0" style="-fx-background-color: #f1f1f1;" BorderPane.alignment="CENTER">
          <children>
@@ -74,7 +74,7 @@
                   <Insets left="20.0" right="20.0" />
                </padding>
             </StackPane>
-            <Button layoutX="41.0" layoutY="637.0" mnemonicParsing="false" onAction="#switchToGerenciarForm" prefHeight="41.0" prefWidth="211.0" style="-fx-background-color: #669999;" text="Adicionar medicamento" textFill="WHITE">
+            <Button layoutX="41.0" layoutY="637.0" mnemonicParsing="false" onAction="#saveMeds" prefHeight="41.0" prefWidth="211.0" style="-fx-background-color: #669999;" text="Adicionar medicamento" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
