@@ -23,5 +23,7 @@
         <mapping class="models.Medicamentos"/>
         <mapping class="models.Admin"/>
         <mapping class="models.Usuarios"/>
+        <mapping class="models.Proprietario"/>
+        <mapping class="models.Animal"/>
     </session-factory>
 </hibernate-configuration>
