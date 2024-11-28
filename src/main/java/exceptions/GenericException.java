@@ -10,6 +10,10 @@ public class GenericException extends Exception {
     super(message);
   }
 
+  public GenericException(String message, Throwable cause) {
+    super(message, cause);
+  }
+
   @Override
   public String getMessage(){
     return super.getMessage();

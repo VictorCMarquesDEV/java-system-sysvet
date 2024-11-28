@@ -6,12 +6,14 @@ import repositories.AdminRepository;
 import repositories.UsuariosRepository;
 import models.Admin;
 import models.Usuarios;
+import repositories.medicamentoRepository;
 
 public class hibernateSessionFactorySingleton {
     
     private static SessionFactory sessionFactory;
     private static AdminRepository adminRepository;
     private static UsuariosRepository usuariosRepository;
+    private static medicamentoRepository MedicamentoRepository;
 
     static {
         try {
@@ -21,6 +23,7 @@ public class hibernateSessionFactorySingleton {
             // Inicializa os repositórios
             adminRepository = new AdminRepository(sessionFactory);
             usuariosRepository = new UsuariosRepository(sessionFactory);
+            MedicamentoRepository = new medicamentoRepository(sessionFactory);
 
             // Inicializa o administrador padrão
             initializeAdmin();

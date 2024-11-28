@@ -11,7 +11,7 @@ import repositories.interfaces.GenericRepositoryInterface;
 
 public class GenericRepository<T, ID> implements GenericRepositoryInterface<T, ID> {
     private final Class<T> entityClass;
-    private final SessionFactory sessionFactory;
+    protected final SessionFactory sessionFactory;
 
     public GenericRepository(Class<T> entityClass, SessionFactory sessionFactory) {
         this.entityClass = entityClass;
