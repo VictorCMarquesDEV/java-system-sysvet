@@ -2,6 +2,7 @@ package com.sysvet.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import com.sysvet.App;
@@ -10,12 +11,17 @@ import context.ConsultasContext;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import models.Consulta;
 import repositories.ConsultasRepository;
 import utils.hibernateSessionFactorySingleton;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 
 public class ConsultasFormController implements Initializable {
 
@@ -23,10 +29,10 @@ public class ConsultasFormController implements Initializable {
             hibernateSessionFactorySingleton.getSessionFactory());
 
     @FXML
-    private TextField data;
+    private DatePicker data;
 
     @FXML
-    private TextField hora;
+    private ChoiceBox hora;
 
     @FXML
     private TextField descricao;
@@ -90,8 +96,8 @@ public class ConsultasFormController implements Initializable {
 
     @FXML
     void save(ActionEvent event) {
-        String data_value = data.getText();
-        String hora_value = hora.getText();
+        String data_value = (data.getValue() != null) ? data.getValue().toString() : "";
+        String hora_value = (hora.getValue() != null) ? hora.getValue().toString() : "";
         String descricao_value = descricao.getText();
         String cliente_value = cliente.getText();
         String pet_value = pet.getText();
@@ -102,7 +108,7 @@ public class ConsultasFormController implements Initializable {
             if (descricao_value.trim().isEmpty() || cliente_value.trim().isEmpty() || pet_value.trim().isEmpty()
                     || responsavel_value.trim().isEmpty() || data_value.trim().isEmpty()
                     || hora_value.trim().isEmpty()) {
-                errorMessage.setText("Há campos vazios no formulário");
+                showAlert("Campos obrigatórios", "Há campos vazios no formulário. Por favor, preencha todos os campos.");
             } else {
 
                 if (ConsultasContext.getInstance().getEdit()) {
@@ -130,11 +136,20 @@ public class ConsultasFormController implements Initializable {
         }
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        
+        // Adicionando opções à ChoiceBox
+        ObservableList<String> horarios = FXCollections.observableArrayList(
+            "08:00", "09:00", "10:00", "11:00", "13:00", "14:00", "15:00", "16:00"
+            );
+        hora.setItems(horarios);
+
         if (ConsultasContext.getInstance().getEdit()) {
-            data.setText(ConsultasContext.getInstance().getEmployee().getData());
-            hora.setText(ConsultasContext.getInstance().getEmployee().getHora());
+
+            data.setValue(LocalDate.parse(ConsultasContext.getInstance().getEmployee().getData()));
+            hora.setValue(ConsultasContext.getInstance().getEmployee().getHora());
             descricao.setText(ConsultasContext.getInstance().getEmployee().getDescricao());
             cliente.setText(ConsultasContext.getInstance().getEmployee().getCliente());
             pet.setText(ConsultasContext.getInstance().getEmployee().getPet());
@@ -142,5 +157,14 @@ public class ConsultasFormController implements Initializable {
 
             title.setText("Atualização de consulta");
         }
+    }
+
+    // Método para mostrar um alerta
+    private void showAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(title);
+        alert.setHeaderText(null); // Sem cabeçalho
+        alert.setContentText(message);
+        alert.showAndWait(); // Exibe o alerta e aguarda até que seja fechado
     }
 }

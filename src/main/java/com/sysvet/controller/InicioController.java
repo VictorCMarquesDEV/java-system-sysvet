@@ -53,6 +53,10 @@ public class InicioController implements Initializable {
             return this.consulta.getPet();
         };
 
+        public String getDescricao() {
+            return this.consulta.getDescricao();
+        };
+
         public ImageView getEditIcon() {
             return new ImageView(
                     new Image(
@@ -81,6 +85,9 @@ public class InicioController implements Initializable {
 
     @FXML
     private TableColumn<TableRow, String> pet;
+
+    @FXML
+    private TableColumn<TableRow, String> descricao;
 
     @FXML
     private TableColumn<TableRow, ImageView> editIcon;
@@ -156,6 +163,7 @@ public class InicioController implements Initializable {
         hora.setCellValueFactory(new PropertyValueFactory<TableRow, String>("hora"));
         cliente.setCellValueFactory(new PropertyValueFactory<TableRow, String>("cliente"));
         pet.setCellValueFactory(new PropertyValueFactory<TableRow, String>("pet"));
+        descricao.setCellValueFactory(new PropertyValueFactory<TableRow, String>("descricao"));
         editIcon.setCellValueFactory(new PropertyValueFactory<TableRow, ImageView>("editIcon"));
         checkIcon.setCellValueFactory(new PropertyValueFactory<TableRow, ImageView>("checkIcon"));
 

@@ -123,10 +123,11 @@
                      <columns>
                         <TableColumn fx:id="data" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="100.0" style="-fx-alignment: center;" text="Data" />
                         <TableColumn fx:id="hora" maxWidth="1.7976931348623157E308" minWidth="-Infinity" style="-fx-alignment: center;" text="Hora" />
-                        <TableColumn fx:id="cliente" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="230.0" style="-fx-alignment: center;" text="Cliente" />
-                        <TableColumn fx:id="pet" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="230.0" style="-fx-alignment: center;" text="Pet" />
-                        <TableColumn fx:id="editIcon" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="75.0" style="-fx-alignment: center;" />
-                        <TableColumn fx:id="checkIcon" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="75.0" style="-fx-alignment: center_left;" />
+                        <TableColumn fx:id="cliente" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="200.0" style="-fx-alignment: center;" text="Pet" />
+                        <TableColumn fx:id="pet" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="180.0" style="-fx-alignment: center;" text="Espécie/Raça" />
+                        <TableColumn fx:id="descricao" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="150.0" style="-fx-alignment: center;" text="Motivo" />
+                        <TableColumn fx:id="editIcon" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="50.0" style="-fx-alignment: center;" />
+                        <TableColumn fx:id="checkIcon" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="50.0" style="-fx-alignment: center_left;" />
                      </columns>
                   </TableView>
                </children>
